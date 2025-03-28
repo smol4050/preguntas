@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 215}
+  m_AnchoredPosition: {x: -0.000013351, y: -103.86}
   m_SizeDelta: {x: 1230.1477, y: 207.7259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41441667
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_fontSize: 14
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
@@ -448,7 +448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 381, y: -100.54}
+  m_AnchoredPosition: {x: 381, y: 0.000019073}
   m_SizeDelta: {x: 744.207, y: 201.0891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &121156316
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1409039729}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameControllerPreguntas, Assembly-CSharp
         m_MethodName: respuesta2
         m_Mode: 1
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Respuesta 1
+  m_text: Verdadero
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6d631ba4c37c7e54d8da171ca4cee485, type: 2}
   m_sharedMaterial: {fileID: -510548088854733979, guid: 6d631ba4c37c7e54d8da171ca4cee485, type: 2}
@@ -769,6 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38173f19a70ea7b468584d07f0f4c483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelBoolean: {fileID: 278758562}
 --- !u!1 &362073027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4026bc46a20bd94449c0889f292a09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelAbierta: {fileID: 595916461}
   inputField: {fileID: 2114361122}
 --- !u!1 &687276181
 GameObject:
@@ -1428,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372.1, y: -309}
+  m_AnchoredPosition: {x: -372.1, y: -215}
   m_SizeDelta: {x: 744.207, y: 201.0891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745968937
@@ -1475,7 +1477,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1409039729}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameControllerPreguntas, Assembly-CSharp
         m_MethodName: respuesta3
         m_Mode: 1
@@ -1617,6 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90be5a578dd44f44a8baccaddf3446b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelMultiple: {fileID: 754949323}
   opciones:
   - {fileID: 1867863664}
   - {fileID: 1081591492}
@@ -2281,9 +2284,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1409039729}
-        m_TargetAssemblyTypeName: GameControllerPreguntas, Assembly-CSharp
-        m_MethodName: respuesta1
+      - m_Target: {fileID: 278758566}
+        m_TargetAssemblyTypeName: BooleanQuestionController, Assembly-CSharp
+        m_MethodName: SelectTrue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2414,9 +2417,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1409039729}
-        m_TargetAssemblyTypeName: GameControllerPreguntas, Assembly-CSharp
-        m_MethodName: respuesta2
+      - m_Target: {fileID: 278758566}
+        m_TargetAssemblyTypeName: BooleanQuestionController, Assembly-CSharp
+        m_MethodName: SelectFalse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2681,9 +2684,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1409039729}
-        m_TargetAssemblyTypeName: GameControllerPreguntas, Assembly-CSharp
-        m_MethodName: respuesta1
+      - m_Target: {fileID: 595916465}
+        m_TargetAssemblyTypeName: OpenQuestionController, Assembly-CSharp
+        m_MethodName: VerifyOpenAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2876,11 +2879,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1409039730}
-  - component: {fileID: 1409039729}
   - component: {fileID: 1409039734}
   - component: {fileID: 1409039733}
   - component: {fileID: 1409039732}
   - component: {fileID: 1409039731}
+  - component: {fileID: 1409039735}
   m_Layer: 0
   m_Name: -----GameController-----
   m_TagString: Untagged
@@ -2888,18 +2891,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1409039729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409039728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c4773dca715824dafed72b78475bf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1409039730
 Transform:
   m_ObjectHideFlags: 0
@@ -2951,6 +2942,7 @@ MonoBehaviour:
   txtPregunta: {fileID: 1984357698}
   txtResultado: {fileID: 41441667}
   txtRonda: {fileID: 932634996}
+  txtPreguntaNumber: {fileID: 1527879067}
   txtCorrectas: {fileID: 687276183}
   txtIncorrectas: {fileID: 1222021932}
 --- !u!114 &1409039733
@@ -2993,7 +2985,10 @@ MonoBehaviour:
     allowEasy: 0
     allowHard: 1
     timeLimit: 600
-  timer: {fileID: 0}
+  multipleChoiceController: {fileID: 754949327}
+  openQuestionController: {fileID: 595916465}
+  booleanQuestionController: {fileID: 278758566}
+  timer: {fileID: 1409039735}
 --- !u!114 &1409039734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3006,6 +3001,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cfb2105dcf6184195a2e1234d24291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1409039735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409039728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f79b3f2d26b9d94282dcbfe86c18e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
 --- !u!1 &1457923967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,7 +3050,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 381, y: -309}
+  m_AnchoredPosition: {x: 381, y: -215}
   m_SizeDelta: {x: 744.207, y: 201.0891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1457923969
@@ -3089,7 +3097,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1409039729}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameControllerPreguntas, Assembly-CSharp
         m_MethodName: respuesta4
         m_Mode: 1
@@ -3276,6 +3284,142 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &1527879065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527879066}
+  - component: {fileID: 1527879068}
+  - component: {fileID: 1527879067}
+  m_Layer: 5
+  m_Name: TxtNPregunta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1527879066
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527879065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2075233205}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 845.02, y: 409.3}
+  m_SizeDelta: {x: 384.6938, y: 180.86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1527879067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527879065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 6d631ba4c37c7e54d8da171ca4cee485, type: 2}
+  m_sharedMaterial: {fileID: -510548088854733979, guid: 6d631ba4c37c7e54d8da171ca4cee485, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 72
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1527879068
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527879065}
+  m_CullTransparentMesh: 1
 --- !u!1 &1757773517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,7 +3812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372.1, y: -100.54}
+  m_AnchoredPosition: {x: -372.1, y: 0.000022888}
   m_SizeDelta: {x: 744.207, y: 201.0891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873224845
@@ -4038,7 +4182,7 @@ MonoBehaviour:
   m_fontSize: 14
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4142,7 +4286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Respuesta 2
+  m_text: Falso
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6d631ba4c37c7e54d8da171ca4cee485, type: 2}
   m_sharedMaterial: {fileID: -510548088854733979, guid: 6d631ba4c37c7e54d8da171ca4cee485, type: 2}
@@ -4320,6 +4464,7 @@ RectTransform:
   - {fileID: 1211086114}
   - {fileID: 1984357697}
   - {fileID: 932634995}
+  - {fileID: 1527879066}
   - {fileID: 1406385102}
   - {fileID: 687276182}
   - {fileID: 1222021931}

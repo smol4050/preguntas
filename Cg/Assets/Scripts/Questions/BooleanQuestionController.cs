@@ -3,9 +3,16 @@ using UnityEngine;
 
 public class BooleanQuestionController : MonoBehaviour
 {
-    [SerializeField] private GameObject panelBoolean;
 
-    public void ShowQuestion(PreguntasMultiples pregunta)
+    [SerializeField] private GameObject panelBoolean;
+    private RoundManager roundManager;
+
+    void Awake()
+    {
+        roundManager = FindObjectOfType<RoundManager>();
+    }
+
+    public void ShowQuestion(PreguntasVerdaderoFalso pregunta)
     {
         UIManager.Instance.HideAllPanels();
         panelBoolean.SetActive(true);
@@ -14,10 +21,20 @@ public class BooleanQuestionController : MonoBehaviour
 
     public void OnAnswerSelected(bool respuestaUsuario)
     {
-        bool correcta = (respuestaUsuario && GetComponent<RoundManager>().currentQuestion.RespuestaCorrecta.ToLower() == "true") ||
-                       (!respuestaUsuario && GetComponent<RoundManager>().currentQuestion.RespuestaCorrecta.ToLower() == "false");
-
-        GetComponent<RoundManager>().RegisterAnswer(correcta, GetComponent<RoundManager>().currentQuestion.RespuestaCorrecta);
+        bool correcta = (respuestaUsuario && roundManager.currentQuestion.RespuestaCorrecta.ToLower() == "true") ||
+                         (!respuestaUsuario && roundManager.currentQuestion.RespuestaCorrecta.ToLower() == "false");
+        roundManager.RegisterAnswer(correcta, roundManager.currentQuestion.RespuestaCorrecta);
         panelBoolean.SetActive(false);
     }
+
+    public void SelectTrue()
+    {
+        OnAnswerSelected(true);
+    }
+
+    public void SelectFalse()
+    {
+        OnAnswerSelected(false);
+    }
 }
+

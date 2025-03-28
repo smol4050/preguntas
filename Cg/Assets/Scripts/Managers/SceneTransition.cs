@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class SceneTransition : MonoBehaviour
 {
-    [Header("Referencias Obligatorias")]
+
     [SerializeField] private GameObject transitionOverlay;
     [SerializeField] private Animator animator;
-    [SerializeField] private Button playButton;
 
-    [Header("Configuración de Tiempos")]
+    [SerializeField] private Button playButton;
     [SerializeField] private float fadeOutDuration = 1f;
     [SerializeField] private float fadeInDuration = 1f;
 

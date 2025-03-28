@@ -5,6 +5,7 @@ using models;
 
 public class DataManager : MonoBehaviour
 {
+
     public static DataManager Instance;
 
     void Awake()
@@ -12,22 +13,38 @@ public class DataManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            
         }
-        else Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public List<PreguntasMultiples> LoadQuestions(string fileName, bool allowEasy, bool allowHard)
+    string CleanFileName(string fileName)
     {
-        List<PreguntasMultiples> questions = new List<PreguntasMultiples>();
-        string path = Path.Combine(Application.dataPath, "Scripts/PM", fileName);
+        fileName = fileName.Trim().Replace("\n", "").Replace("\r", "");
+        foreach (char c in System.IO.Path.GetInvalidFileNameChars())
+        {
+            fileName = fileName.Replace(c.ToString(), "");
+        }
+        if (!System.IO.Path.HasExtension(fileName))
+        {
+            fileName += ".txt";
+        }
+        return fileName;
+    }
 
+    public List<PreguntasMultiples> LoadPreguntasMultiples(string fileName, bool allowEasy, bool allowHard)
+    {
+        List<PreguntasMultiples> preguntas = new List<PreguntasMultiples>();
+        fileName = CleanFileName(fileName);
+        string path = Path.Combine(Application.dataPath, "Resources", "Files", fileName);
         if (!File.Exists(path))
         {
             Debug.LogError($"Archivo no encontrado: {path}");
-            return questions;
+            return preguntas;
         }
-
         using (StreamReader sr = new StreamReader(path))
         {
             string line;
@@ -35,18 +52,77 @@ public class DataManager : MonoBehaviour
             {
                 string[] data = line.Split('-');
                 if (data.Length < 8) continue;
-
-                PreguntasMultiples question = new PreguntasMultiples(
-                    data[0], data[1], data[2], data[3], data[4],
-                    data[5], data[6], data[7]);
-
-                if ((allowEasy && question.Dificultad.ToLower() == "facil") ||
-                    (allowHard && question.Dificultad.ToLower() == "dificil"))
-                {
-                    questions.Add(question);
-                }
+                PreguntasMultiples pregunta = new PreguntasMultiples(
+                    data[0].Trim(), data[1].Trim(), data[2].Trim(), data[3].Trim(),
+                    data[4].Trim(), data[5].Trim(), data[6].Trim(), data[7].Trim()
+                );
+                if ((allowEasy && pregunta.Dificultad.ToLower() == "facil") ||
+                    (allowHard && pregunta.Dificultad.ToLower() == "dificil"))
+                    preguntas.Add(pregunta);
             }
         }
-        return questions;
+        return preguntas;
+    }
+
+    public List<PreguntasAbiertas> LoadPreguntasAbiertas(string fileName, bool allowEasy, bool allowHard)
+    {
+        List<PreguntasAbiertas> preguntas = new List<PreguntasAbiertas>();
+        fileName = CleanFileName(fileName);
+        string path = Path.Combine(Application.dataPath, "Resources", "Files", fileName);
+        if (!File.Exists(path))
+        {
+            Debug.LogError($"Archivo no encontrado: {path}");
+            return preguntas;
+        }
+        using (StreamReader sr = new StreamReader(path))
+        {
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] data = line.Split('-');
+                if (data.Length < 4) continue;
+                PreguntasAbiertas pregunta = new PreguntasAbiertas(
+                    data[0].Trim(), data[1].Trim(), data[2].Trim(), data[3].Trim()
+                );
+                if ((allowEasy && pregunta.Dificultad.ToLower() == "facil") ||
+                    (allowHard && pregunta.Dificultad.ToLower() == "dificil"))
+                    preguntas.Add(pregunta);
+            }
+        }
+        return preguntas;
+    }
+
+    public List<PreguntasVerdaderoFalso> LoadPreguntasVerdaderoFalso(string fileName, bool allowEasy, bool allowHard)
+    {
+        List<PreguntasVerdaderoFalso> preguntas = new List<PreguntasVerdaderoFalso>();
+        fileName = CleanFileName(fileName);
+        string path = Path.Combine(Application.dataPath, "Resources", "Files", fileName);
+        if (!File.Exists(path))
+        {
+            Debug.LogError($"Archivo no encontrado: {path}");
+            return preguntas;
+        }
+        using (StreamReader sr = new StreamReader(path))
+        {
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] data = line.Split('-');
+                if (data.Length < 4) continue;
+                PreguntasVerdaderoFalso pregunta = new PreguntasVerdaderoFalso(
+                    data[0].Trim(), data[1].Trim(), data[2].Trim(), data[3].Trim()
+                );
+                if ((allowEasy && pregunta.Dificultad.ToLower() == "facil") ||
+                    (allowHard && pregunta.Dificultad.ToLower() == "dificil"))
+                    preguntas.Add(pregunta);
+            }
+        }
+        return preguntas;
     }
 }
+
+
+
+
+
+

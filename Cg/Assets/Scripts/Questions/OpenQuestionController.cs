@@ -6,8 +6,12 @@ public class OpenQuestionController : MonoBehaviour
 {
     [SerializeField] private GameObject panelAbierta;
     [SerializeField] private TMP_InputField inputField;
-
-    public void ShowQuestion(PreguntasMultiples pregunta)
+    private RoundManager roundManager;
+    void Awake()
+    {
+        roundManager = FindObjectOfType<RoundManager>();
+    }
+    public void ShowQuestion(PreguntasAbiertas pregunta)
     {
         UIManager.Instance.HideAllPanels();
         panelAbierta.SetActive(true);
@@ -18,10 +22,11 @@ public class OpenQuestionController : MonoBehaviour
     public void VerifyOpenAnswer()
     {
         string respuestaUsuario = inputField.text.Trim().ToLower();
-        string respuestaCorrecta = GetComponent<RoundManager>().currentQuestion.RespuestaCorrecta.Trim().ToLower();
-
+        string respuestaCorrecta = roundManager.currentQuestion.RespuestaCorrecta.Trim().ToLower();
         bool isCorrect = respuestaUsuario == respuestaCorrecta;
-        GetComponent<RoundManager>().RegisterAnswer(isCorrect, GetComponent<RoundManager>().currentQuestion.RespuestaCorrecta);
+        roundManager.RegisterAnswer(isCorrect, roundManager.currentQuestion.RespuestaCorrecta);
         panelAbierta.SetActive(false);
     }
 }
+
+
