@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class BooleanQuestionController : MonoBehaviour
 {
-
     [SerializeField] private GameObject panelBoolean;
     private RoundManager roundManager;
 
@@ -24,6 +23,10 @@ public class BooleanQuestionController : MonoBehaviour
         bool correcta = (respuestaUsuario && roundManager.currentQuestion.RespuestaCorrecta.ToLower() == "true") ||
                          (!respuestaUsuario && roundManager.currentQuestion.RespuestaCorrecta.ToLower() == "false");
         roundManager.RegisterAnswer(correcta, roundManager.currentQuestion.RespuestaCorrecta);
+        if (correcta)
+            AudioManager.Instance.PlayCorrect();
+        else
+            AudioManager.Instance.PlayIncorrect();
         panelBoolean.SetActive(false);
     }
 
@@ -37,4 +40,3 @@ public class BooleanQuestionController : MonoBehaviour
         OnAnswerSelected(false);
     }
 }
-

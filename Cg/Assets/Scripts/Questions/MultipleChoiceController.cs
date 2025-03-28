@@ -81,9 +81,11 @@ public class MultipleChoiceController : MonoBehaviour
             roundManager.RegisterAnswer(isCorrect, preguntaActual.RespuestaCorrecta);
         else
             Debug.LogError("roundManager es null en VerifyAnswer");
+        
+        if (isCorrect)
+            AudioManager.Instance.PlayCorrect();
+        else
+            AudioManager.Instance.PlayIncorrect();
         panelMultiple.SetActive(false);
     }
 }
-
-
-

@@ -7,10 +7,12 @@ public class OpenQuestionController : MonoBehaviour
     [SerializeField] private GameObject panelAbierta;
     [SerializeField] private TMP_InputField inputField;
     private RoundManager roundManager;
+
     void Awake()
     {
         roundManager = FindObjectOfType<RoundManager>();
     }
+
     public void ShowQuestion(PreguntasAbiertas pregunta)
     {
         UIManager.Instance.HideAllPanels();
@@ -25,8 +27,10 @@ public class OpenQuestionController : MonoBehaviour
         string respuestaCorrecta = roundManager.currentQuestion.RespuestaCorrecta.Trim().ToLower();
         bool isCorrect = respuestaUsuario == respuestaCorrecta;
         roundManager.RegisterAnswer(isCorrect, roundManager.currentQuestion.RespuestaCorrecta);
+        if (isCorrect)
+            AudioManager.Instance.PlayCorrect();
+        else
+            AudioManager.Instance.PlayIncorrect();
         panelAbierta.SetActive(false);
     }
 }
-
-
